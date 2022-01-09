@@ -1,0 +1,25 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/LiMin1129/springcloud-config.git
+          search-paths:
+            - springcloud-config
+          default-label: main
+          username: LiMin1129
+          password: Lm971129
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+eureka:
+  #表示是否将自己注册进Eurekaserver默认为true。
+  register-with-eureka: true
+#  #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+  fetchRegistry: true
+  client:
+    service-url: http://eureka7001.com:7001/eureka/
