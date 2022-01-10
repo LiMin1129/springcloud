@@ -14,8 +14,12 @@ spring:
           default-label: main
           username: LiMin1129
           password: Lm971129
-  autoconfigure:
-    exclude: org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+  rabbitmq:
+    host: 192.168.74.141
+    port: 5672
+    username: limin
+    password: lm971129
+
 eureka:
   #表示是否将自己注册进Eurekaserver默认为true。
   register-with-eureka: true
@@ -23,3 +27,10 @@ eureka:
   fetchRegistry: true
   client:
     service-url: http://eureka7001.com:7001/eureka/
+
+##rabbitmq相关配置,暴露bus刷新配置的端点<--------------------------
+management:
+  endpoints: #暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: 'bus-refresh'

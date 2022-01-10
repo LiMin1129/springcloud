@@ -8,8 +8,14 @@ spring:
     config:
       label: main
       name: config
-      profile: test
+      profile: dev
       uri: http://localhost:3344
+  rabbitmq:
+    host: 192.168.74.141
+    port: 5672
+    username: limin
+    password: lm971129
+
 eureka:
   client:
     service-url:
